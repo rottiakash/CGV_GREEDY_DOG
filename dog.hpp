@@ -96,11 +96,11 @@ private:
     }
 
 public:
-    void
-    draw(int xpos, int ypos)
+    void draw(int xpos, int ypos, float scale)
     {
         glPushMatrix();
         glTranslatef(xpos, ypos, 0);
+        glScalef(scale, scale, 1);
         body();
         legs();
         tail();
