@@ -1,8 +1,6 @@
-#ifdef __APPLE__
-#include <GLUT/glut.h>
-#else
-#include <GL/glut.h>
-#endif
+#include <Windows.h>
+#include <GL\glew.h>
+#include <GL\freeglut.h>
 #define STB_IMAGE_IMPLEMENTATION
 #define SPACEBAR 32
 #include <iostream>
@@ -469,5 +467,14 @@ int main(int argc, char **argv)
     glEnable(GL_DEPTH_TEST);
     glutTimerFunc(1000, timer, 0);
     init();
+    // Very important!  This initializes the entry points in the OpenGL driver so we can
+    // call all the functions in the API.
+    GLenum err = glewInit();
+    if (GLEW_OK != err)
+    {
+        fprintf(stderr, "GLEW error");
+        return 1;
+    }
     glutMainLoop();
+    return 0;
 }

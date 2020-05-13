@@ -1,10 +1,8 @@
 #ifndef BONE_H
 #define BONE_H
-#ifdef __APPLE__
-#include <GLUT/glut.h>
-#else
-#include <GL/glut.h>
-#endif
+#include <Windows.h>
+#include <GL\glew.h>
+#include <GL\freeglut.h>
 #include "ellipse.hpp"
 #include "line.hpp"
 

@@ -1,10 +1,8 @@
 #ifndef LINE_H
 #define LINE_H
-#ifdef __APPLE__
-#include <GLUT/glut.h>
-#else
-#include <GL/glut.h>
-#endif
+#include <Windows.h>
+#include <GL\glew.h>
+#include <GL\freeglut.h>
 class Line
 {
 private:
@@ -26,7 +24,7 @@ public:
         glVertex3f(x2, y2, depthIndex);
         glEnd();
     }
-    void draw(int x1, int y1, int x2, int y2, int depthIndex,int lw)
+    void draw(int x1, int y1, int x2, int y2, int depthIndex, int lw)
     {
         glColor3fv(color);
         glLineWidth(lw);
